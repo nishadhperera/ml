@@ -1,12 +1,15 @@
 # Data Pre-processing Template - To be imported anywhere
 
 # Import libraries
+import pydot
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+from sklearn.externals.six import StringIO
 from matplotlib.colors import ListedColormap
 
 # Import sklearn libraries
+from sklearn import tree
 from sklearn.metrics import confusion_matrix
 from sklearn.preprocessing import StandardScaler
 from sklearn.tree import DecisionTreeClassifier
@@ -34,6 +37,18 @@ y_pred = classifier.predict(X_test)
 
 # Making the confusion matrix
 cm = confusion_matrix(y_test, y_pred)
+
+# Plot the decision tree
+dot_data = StringIO()
+feature_names = ['Age', 'Estimated Salary']
+tree.export_graphviz(classifier,
+                     out_file=dot_data,
+                     feature_names=feature_names,
+                     class_names=True,
+                     filled=True,
+                     rounded=True)
+graph = pydot.graph_from_dot_data(dot_data.getvalue())
+graph[0].write_pdf("tree.pdf")
 
 # Visualizing the training set results
 X_set, y_set = X_train, y_train
