@@ -9,7 +9,7 @@ from matplotlib.colors import ListedColormap
 # Import sklearn libraries
 from sklearn.metrics import confusion_matrix
 from sklearn.preprocessing import StandardScaler
-from sklearn.linear_model import LogisticRegression
+from sklearn.tree import DecisionTreeClassifier
 from sklearn.model_selection import train_test_split
 
 # Import Dataset
@@ -27,7 +27,7 @@ X_test = sc_X.transform(X_test)
 
 # Fitting logistic regression to train dataset
 """
-Create a classifier here
+Create classifier here
 """
 
 # Predict test set results
@@ -47,7 +47,7 @@ plt.xlim(X1.min(), X1.max())
 plt.ylim(X2.min(), X2.max())
 for i, j in enumerate(np.unique(y_set)):
     plt.scatter(X_set[y_set == j, 0], X_set[y_set == j, 1], c=ListedColormap(('red', 'green'))(i), label=j)
-plt.title('Logistic Regression (Training Set)')
+plt.title('XXX Classification (Training Set)')
 plt.xlabel('Age')
 plt.ylabel('Estimated Salary')
 plt.legend()
@@ -64,7 +64,7 @@ plt.xlim(X1.min(), X1.max())
 plt.ylim(X2.min(), X2.max())
 for i, j in enumerate(np.unique(y_set)):
     plt.scatter(X_set[y_set == j, 0], X_set[y_set == j, 1], c=ListedColormap(('red', 'green'))(i), label=j)
-plt.title('Logistic Regression (Test Set)')
+plt.title('XXX Classification (Test Set)')
 plt.xlabel('Age')
 plt.ylabel('Estimated Salary')
 plt.legend()
