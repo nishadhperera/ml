@@ -29,6 +29,7 @@ X_test = sc_X.transform(X_test)
 """
 Create classifier here
 """
+classifier = 'Classifier'
 
 # Predict test set results
 y_pred = classifier.predict(X_test)
